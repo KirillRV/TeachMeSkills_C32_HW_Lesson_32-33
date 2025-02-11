@@ -18,17 +18,17 @@ public class Main {
             AccountService accountService = new AccountService(accountDao);
 
             accountService.createAccount(new Account("123456789", new BigDecimal("500.00")));
-            accountService.createAccount(new Account("987654321", new BigDecimal("300.00")));
+            accountService.createAccount(new Account("123412341", new BigDecimal("300.00")));
 
             System.out.println("Initial Balance:");
             System.out.println("Account 123456789: " + accountService.getBalance("123456789"));
-            System.out.println("Account 987654321: " + accountService.getBalance("987654321"));
+            System.out.println("Account 123412341: " + accountService.getBalance("123412341"));
 
-            accountService.transferFunds("123456789", "987654321", new BigDecimal("200.00"));
+            accountService.transferFunds("123456789", "123412341", new BigDecimal("200.00"));
 
             System.out.println("\nBalance After Transfer:");
             System.out.println("Account 123456789: " + accountService.getBalance("123456789"));
-            System.out.println("Account 987654321: " + accountService.getBalance("987654321"));
+            System.out.println("Account 123412341: " + accountService.getBalance("123412341"));
 
         } catch (SQLException | AccountNotFoundException | InsufficientFundsException e) {
             System.err.println("Error: " + e.getMessage());
